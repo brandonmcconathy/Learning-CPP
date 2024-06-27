@@ -244,6 +244,8 @@
 		CAC5FCBD2C2DF1950047F607 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++98";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 34ZSVSZ57S;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -254,6 +256,7 @@
 		CAC5FCBE2C2DF1950047F607 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++98";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 34ZSVSZ57S;
 				ENABLE_HARDENED_RUNTIME = YES;
