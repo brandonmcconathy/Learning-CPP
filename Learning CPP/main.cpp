@@ -10,29 +10,49 @@
 
 class Node {
     int val;
+    Node* next = nullptr;
     
 public:
-    
     Node(int input) {
         val = input;
     };
     
-    int Peek() {
+    int get() {
         return val;
     };
     
-    void Output() {
-        std::cout << "This is the value: " << val << "\n";
+    void Add(Node input) {
+        next = &input;
+    }
+    
+};
+
+
+class LinkedList {
+    Node* head = nullptr;
+    int length = 0;
+    
+public:
+    int Length() {
+        return length;
     };
     
-    void Add(int input) {
-        val = val + input;
+    int Peek() {
+        if (length == 0) {
+            return NULL;
+        }
+        return head->get();
     };
     
-    void Multiply(int input) {
-        val = val * input;
+    void Add(Node input) {
+        if (length == 0) {
+            head = &input;
+        } else {
+
+        };
     };
 };
+
 
 int main(int argc, const char * argv[]) {
     
@@ -40,11 +60,11 @@ int main(int argc, const char * argv[]) {
     Node secondVal(5);
     Node thirdVal(128);
     
+    LinkedList list;
     
-    for (int i=0; i < 10; i++) {
-        firstVal.Multiply(i + 1);
-        firstVal.Output();
-    }
+    std::cout << list.Length() << "\n";
+    
+    
     
     
     return 0;
