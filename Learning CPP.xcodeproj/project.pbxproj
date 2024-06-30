@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		CAC5FCB92C2DF1950047F607 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CAC5FCB82C2DF1950047F607 /* main.cpp */; };
-		CAC5FCC12C2E47440047F607 /* ExternalFunction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CAC5FCBF2C2E47440047F607 /* ExternalFunction.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,8 +25,6 @@
 /* Begin PBXFileReference section */
 		CAC5FCB52C2DF1950047F607 /* Learning CPP */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Learning CPP"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAC5FCB82C2DF1950047F607 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		CAC5FCBF2C2E47440047F607 /* ExternalFunction.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ExternalFunction.cpp; sourceTree = "<group>"; };
-		CAC5FCC02C2E47440047F607 /* ExternalFunction.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ExternalFunction.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +58,6 @@
 			isa = PBXGroup;
 			children = (
 				CAC5FCB82C2DF1950047F607 /* main.cpp */,
-				CAC5FCBF2C2E47440047F607 /* ExternalFunction.cpp */,
-				CAC5FCC02C2E47440047F607 /* ExternalFunction.hpp */,
 			);
 			path = "Learning CPP";
 			sourceTree = "<group>";
@@ -124,7 +119,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CAC5FCC12C2E47440047F607 /* ExternalFunction.cpp in Sources */,
 				CAC5FCB92C2DF1950047F607 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

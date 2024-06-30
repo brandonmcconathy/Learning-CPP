@@ -6,7 +6,6 @@
 //
 
 #include <iostream>
-#include "ExternalFunction.hpp"
 
 class Node {
     int val;
