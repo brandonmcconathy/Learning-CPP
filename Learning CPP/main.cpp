@@ -7,27 +7,15 @@
 
 #include <iostream>
 
-class Node {
+struct Node {
+    
     int val;
     Node* next;
     
-public:
     Node(int input) {
         val = input;
         next = nullptr;
     };
-    
-    int Get() {
-        return val;
-    };
-    
-    Node* GetNext() {
-        return next;
-    };
-    
-    void Add(Node input) {
-        next = &input;
-    }
     
 };
 
@@ -35,15 +23,9 @@ public:
 class LinkedList {
     Node* head;
     Node* tail;
-    int length;
+    int length = 0;
     
 public:
-    LinkedList() {
-        head = nullptr;
-        tail = nullptr;
-        length = 0;
-    };
-    
     int Length() {
         return length;
     };
@@ -52,23 +34,23 @@ public:
         if (length == 0) {
             return NULL;
         };
-        return head->Get();
+        return head->val;
     };
     
     int Tail() {
         if (length == 0){
             return NULL;
         };
-        return tail->Get();
+        return tail->val;
     };
     
     void Add(Node input) {
         if (length == 0) {
-            std::cout << "First add: " << &input << "\n";
             head = &input;
             tail = &input;
+            std::cout << head << "\n";
         } else {
-            tail->Add(input);
+            tail->next = &input;
             tail = &input;
         };
         length++;
@@ -78,10 +60,12 @@ public:
         if (length == 0) {
             std::cout << "List is empty\n";
         } else {
+            std::cout << "head: " << head->val << "\n";
             Node* curr = head;
+            std::cout << "curr: " << curr << "\n";
             for (int i=0; i<length; i++) {
-                std::cout << i << ": " << curr->Get() << "\n";
-                curr = curr->GetNext();
+                std::cout << i << " curr: " << curr->val << "\n";
+                curr = curr->next;
             }
         };
         
@@ -104,8 +88,8 @@ int main(int argc, const char * argv[]) {
     
     list.PrintList();
     
-    std::cout << list.Peek() << "\n";
-    std::cout << list.Tail() << "\n";
+    std::cout << "Final Head: " << list.Peek() << "\n";
+    std::cout << "Final Tail: " << list.Tail() << "\n";
     
     
     
