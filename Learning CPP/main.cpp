@@ -7,92 +7,77 @@
 
 #include <iostream>
 
-struct Node {
-    
-    int val;
-    Node* next;
-    
-    Node(int input) {
-        val = input;
-        next = nullptr;
-    };
-    
-};
-
-
-class LinkedList {
-    Node* head;
-    Node* tail;
-    int length = 0;
+class ArrayList {
+private:
+    int capacity;
+    int length;
+    int* array;
     
 public:
-    int Length() {
+    ArrayList(int initCapacity) {
+        capacity = initCapacity;
+        length = 0;
+        array = new int[capacity];
+    }
+    
+    int Get(int index) {
+        return array[index];
+    }
+    
+    void Set(int index, int val) {
+        array[index] = val;
+    }
+    
+    void Pushback(int val) {
+        if (length == capacity) {
+            Resize();
+        }
+        array[length] = val;
+        ++length;
+    }
+    
+    int Popback() {
+        --length;
+        return array[length + 1];
+    }
+    
+    void Resize() {
+        capacity *= 2;
+        int* newArray = new int[capacity];
+        for (int i = 0; i < length; ++i) {
+            newArray[i] = array[i];
+        }
+        delete [] array;
+        array = newArray;
+    }
+    
+    int GetSize() {
         return length;
-    };
+    }
     
-    int Peek() {
-        if (length == 0) {
-            return NULL;
-        };
-        return head->val;
-    };
-    
-    int Tail() {
-        if (length == 0){
-            return NULL;
-        };
-        return tail->val;
-    };
-    
-    void Add(Node input) {
-        if (length == 0) {
-            head = &input;
-            tail = &input;
-            std::cout << head << "\n";
-        } else {
-            tail->next = &input;
-            tail = &input;
-        };
-        length++;
-    };
+    int GetCapacity() {
+        return capacity;
+    }
     
     void PrintList() {
-        if (length == 0) {
-            std::cout << "List is empty\n";
-        } else {
-            std::cout << "head: " << head->val << "\n";
-            Node* curr = head;
-            std::cout << "curr: " << curr << "\n";
-            for (int i=0; i<length; i++) {
-                std::cout << i << " curr: " << curr->val << "\n";
-                curr = curr->next;
-            }
-        };
-        
-    };
-    
+        for (int i = 0; i < length; ++i) {
+            std::cout << i << ": " << array[i] << std::endl;
+        }
+    }
 };
 
 
 int main(int argc, const char * argv[]) {
     
-    Node firstVal(10);
-    Node secondVal(5);
-    Node thirdVal(128);
+    ArrayList* arr = new ArrayList(5);
     
-    LinkedList list;
+    arr->Pushback(10);
+    arr->Pushback(5);
+    arr->Pushback(2);
+    arr->Pushback(20);
+    arr->Pushback(15);
     
-    list.Add(firstVal);
-    list.Add(secondVal);
-    list.Add(thirdVal);
-    
-    list.PrintList();
-    
-    std::cout << "Final Head: " << list.Peek() << "\n";
-    std::cout << "Final Tail: " << list.Tail() << "\n";
-    
-    
-    
+    arr->PrintList();
     
     return 0;
 }
