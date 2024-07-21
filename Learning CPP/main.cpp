@@ -64,6 +64,10 @@ public:
             std::cout << i << ": " << array[i] << std::endl;
         }
     }
+    
+    void Delete() {
+        delete [] array;
+    }
 };
 
 
@@ -78,6 +82,8 @@ int main(int argc, const char * argv[]) {
     arr->Pushback(15);
     
     arr->PrintList();
+    
+    arr->Delete();
     
     return 0;
 }
