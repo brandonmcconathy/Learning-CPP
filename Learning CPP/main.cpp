@@ -70,6 +70,23 @@ public:
     }
 };
 
+class RingBuffer {
+    int* array;
+    int length;
+    int capacity;
+    int* head;
+    int* tail;
+    
+public:
+    RingBuffer(int initCapacity) {
+        capacity = initCapacity;
+        length = 0;
+        head = nullptr;
+        tail = nullptr;
+        array = new int[capacity];
+    }
+};
+
 
 int main(int argc, const char * argv[]) {
     
