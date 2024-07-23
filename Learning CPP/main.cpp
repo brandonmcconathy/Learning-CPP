@@ -74,16 +74,30 @@ class RingBuffer {
     int* array;
     int length;
     int capacity;
-    int* head;
-    int* tail;
+    int head;
+    int tail;
     
 public:
     RingBuffer(int initCapacity) {
         capacity = initCapacity;
         length = 0;
-        head = nullptr;
-        tail = nullptr;
+        head = 0;
+        tail = 0;
         array = new int[capacity];
+    }
+    
+    void Push(int val) {
+        
+    }
+    
+    void Resize() {
+        int* tempArr = new int[capacity * 2];
+        for (int i = 0; i < length; ++i) {
+            tempArr[i] = array[(head + i) % (capacity - 1)];
+        }
+        head = 0;
+        tail = length - 1;
+        capacity *= 2;
     }
 };
 
