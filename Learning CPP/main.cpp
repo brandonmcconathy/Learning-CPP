@@ -87,7 +87,9 @@ public:
     }
     
     void Push(int val) {
-        
+        if (length == capacity) {
+            Resize();
+        }
     }
     
     void Resize() {
