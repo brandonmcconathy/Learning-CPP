@@ -108,6 +108,22 @@ public:
         ++length;
     }
     
+    void Pop() {
+        if (length == 0) {
+            return;
+        }
+        
+        array[tail] = 0;
+        
+        if (tail == 0) {
+            tail = length - 1;
+        } else {
+            --tail;
+        }
+        
+        --length;
+    }
+    
     void Resize() {
         int* tempArr = new int[capacity * 2];
         for (int i = 0; i < length; ++i) {
