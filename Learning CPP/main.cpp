@@ -77,8 +77,16 @@ class RingBuffer {
     int head;
     int tail;
     
+    void AddToEmpty(int val) {
+        array[0] = val;
+        ++length;
+    }
+    
 public:
     RingBuffer(int initCapacity) {
+        if (initCapacity <= 1) {
+            initCapacity = 2;
+        }
         capacity = initCapacity;
         length = 0;
         head = 0;
@@ -90,6 +98,14 @@ public:
         if (length == capacity) {
             Resize();
         }
+        
+        if (length == 0) {
+            AddToEmpty(val);
+        }
+
+        tail = (tail + 1) % (capacity - 1);
+        array[tail] = val;
+        ++length;
     }
     
     void Resize() {
