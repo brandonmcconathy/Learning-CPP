@@ -94,6 +94,10 @@ public:
         array = new int[capacity];
     }
     
+    int Get(int index) {
+        return array[(head + index) % capacity - 1];
+    }
+    
     void Push(int val) {
         if (length == capacity) {
             Resize();
