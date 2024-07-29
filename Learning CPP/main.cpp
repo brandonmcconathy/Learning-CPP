@@ -105,11 +105,23 @@ public:
         
         if (length == 0) {
             AddToEmpty(val);
+        } else {
+            tail = (tail + 1) % (capacity - 1);
+            array[tail] = val;
+            ++length;
         }
-
-        tail = (tail + 1) % (capacity - 1);
-        array[tail] = val;
-        ++length;
+    }
+    
+    void PushHead(int val) {
+        if (length == capacity) {
+            Resize();
+        }
+        
+        if (length == 0) {
+            AddToEmpty(val);
+        } else {
+            
+        }
     }
     
     void Pop() {
