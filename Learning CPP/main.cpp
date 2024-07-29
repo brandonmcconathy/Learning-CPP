@@ -120,7 +120,14 @@ public:
         if (length == 0) {
             AddToEmpty(val);
         } else {
-            
+            if (head == 0) {
+                head = length - 1;
+                array[head] = val;
+            } else {
+                --head;
+                array[head] = val;
+            }
+            ++length;
         }
     }
     
