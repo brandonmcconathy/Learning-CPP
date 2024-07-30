@@ -147,6 +147,20 @@ public:
         --length;
     }
     
+    void PopHead() {
+        if (length == 0) {
+            return;
+        }
+        
+        array[head] = 0;
+        if (head == capacity - 1) {
+            head = 0;
+        } else {
+            ++head;
+        }
+        --length;
+    }
+    
     void Resize() {
         int* tempArr = new int[capacity * 2];
         for (int i = 0; i < length; ++i) {
