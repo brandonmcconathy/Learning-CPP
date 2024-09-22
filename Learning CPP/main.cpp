@@ -9,26 +9,63 @@
 #include <vector>
 
 
-class Heap {
+class MinHeap {
 private:
     int length;
     std::vector<int> heap;
     
 public:
-    Heap() {
+    MinHeap() {
         length = 0;
+    }
+    
+    int get(int index) {
+        return heap[index];
     }
     
     int size() {
         return length;
     }
+    
+    void add(int val) {
+        heap.push_back(val);
+        
+        int index = length;
+        int parentIdx = (index - 1) / 2;
+        
+        while (index != 0 && heap[parentIdx] < val) {
+            int temp = heap[parentIdx];
+            heap[parentIdx] = val;
+            heap[index] = temp;
+            index = parentIdx;
+            parentIdx = (index - 1) / 2;
+        }
+        length++;
+    }
 };
+
+
+
+void printList(MinHeap vals) {
+    for (int i = 0; i < vals.size(); ++i) {
+        std::cout << vals.get(i) << " ";
+    }
+    std::cout << std::endl;
+}
+
 
 int main(int argc, const char * argv[]) {
     
-    Heap* heap = new Heap();
+    MinHeap heap;
     
-    std::cout << heap->size() << std::endl;
+    heap.add(10);
+    heap.add(12);
+    heap.add(2);
+    heap.add(1);
+    heap.add(15);
+    heap.add(5);
+    
+    printList(heap);
     
     return 0;
 }
