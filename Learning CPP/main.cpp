@@ -33,7 +33,7 @@ public:
         int index = length;
         int parentIdx = (index - 1) / 2;
         
-        while (index != 0 && heap[parentIdx] < val) {
+        while (index != 0 && heap[parentIdx] > val) {
             int temp = heap[parentIdx];
             heap[parentIdx] = val;
             heap[index] = temp;
