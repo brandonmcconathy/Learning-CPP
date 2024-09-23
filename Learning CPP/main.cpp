@@ -42,6 +42,14 @@ public:
         }
         length++;
     }
+    
+    int peek() {
+        if (length == 0) {
+            return -1;
+        }
+        return heap[0];
+    }
+    
 };
 
 
